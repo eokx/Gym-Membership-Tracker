@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Gym Member</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #222;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background: #0d6efd;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Edit Gym Member</h2>
+
+    <form method="POST">
+
+        <label>Full Name</label>
+        <input type="text" name="full_name"
+               value="{{ member.full_name }}" required>
+
+        <label>Age</label>
+        <input type="number" name="age"
+               value="{{ member.age }}" min="1" required>
+
+        <label>Gender</label>
+        <select name="gender" required>
+            <option value="Male"
+                {% if member.gender == 'Male' %}selected{% endif %}>
+                Male
+            </option>
+
+            <option value="Female"
+                {% if member.gender == 'Female' %}selected{% endif %}>
+                Female
+            </option>
+
+            <option value="Other"
+                {% if member.gender == 'Other' %}selected{% endif %}>
+                Other
+            </option>
+        </select>
+
+        <label>Phone</label>
+        <input type="text" name="phone"
+               value="{{ member.phone }}" required>
+
+        <label>Email</label>
+        <input type="email" name="email"
+               value="{{ member.email or '' }}">
+
+        <button type="submit">Update Member</button>
+
+    </form>
+
+    <a href="/members">Back to Members</a>
+
+</div>
+
+</body>
+</html>

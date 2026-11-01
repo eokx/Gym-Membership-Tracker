@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gym Attendance Check-in</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 450px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 25px;
+            background: #198754;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Gym Attendance Check-in</h2>
+
+    <form method="POST" action="/checkin">
+
+        <label>Select Member</label>
+
+        <select name="member_id" required>
+            <option value="">Choose a Member</option>
+
+            {% for member in members %}
+            <option value="{{ member.member_id }}">
+                {{ member.full_name }}
+            </option>
+            {% endfor %}
+
+        </select>
+
+        <button type="submit">Check In</button>
+
+    </form>
+
+    <a href="/attendance">View Attendance Records</a>
+
+</div>
+
+</body>
+</html>

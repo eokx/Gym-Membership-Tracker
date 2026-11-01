@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add New Member</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #222;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background: #198754;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            margin-top: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Add New Gym Member</h2>
+
+    <form method="POST" action="/add-member">
+
+        <label>Full Name</label>
+        <input type="text" name="full_name" required>
+
+        <label>Age</label>
+        <input type="number" name="age" min="1" required>
+
+        <label>Gender</label>
+        <select name="gender" required>
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <label>Phone</label>
+        <input type="text" name="phone" required>
+
+        <label>Email</label>
+        <input type="email" name="email">
+
+        <button type="submit">Save Member</button>
+
+    </form>
+
+    <a href="/members">Back to Members</a>
+
+</div>
+
+</body>
+</html>
